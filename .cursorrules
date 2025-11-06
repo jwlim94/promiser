@@ -1,0 +1,111 @@
+# Promiser Project - Cursor Rules
+
+You are an expert Next.js developer. Always follow these rules when generating code:
+
+## Tech Stack
+
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel
+
+## General Rules
+
+- Use TypeScript for all files
+- Use functional components with hooks
+- Implement proper error boundaries
+- Follow Next.js 14+ App Router conventions
+- Use Tailwind CSS for styling
+
+## General Guidelines
+
+### TypeScript
+
+- Use strict TypeScript typing. Avoid `any` types.
+- Define interfaces for all props and data structures
+- Use proper return types for all functions
+- Leverage TypeScript's utility types when appropriate
+
+### Next.js Best Practices
+
+- Use App Router conventions (app directory structure)
+- Implement Server Components by default, use Client Components only when necessary (interactivity, hooks, browser APIs)
+- Use proper data fetching patterns (Server Components for data fetching when possible)
+- Optimize images using next/image
+- Use proper metadata API for SEO
+
+### Code Structure
+
+- Follow Next.js 14+ conventions for file structure
+- Use meaningful component and file names
+- Keep components small and focused (Single Responsibility Principle)
+- Separate business logic from UI components
+
+### Component Structure
+
+- Always define TypeScript interfaces before component implementation
+- Use named exports for components
+- Include proper JSDoc comments
+- Implement loading and error states
+
+Example component structure:
+
+```tsx
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: "primary" | "secondary";
+  onClick?: () => void;
+  disabled?: boolean;
+}
+
+/**
+ * Reusable button component with variants
+ */
+export function Button({
+  children,
+  variant = "primary",
+  onClick,
+  disabled = false,
+}: ButtonProps) {
+  return (
+    <button
+      className={`px-4 py-2 rounded transition-colors ${
+        variant === "primary"
+          ? "bg-blue-600 hover:bg-blue-700 text-white"
+          : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+      }`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
+}
+```
+
+### Styling with Tailwind
+
+- Use Tailwind utility classes for styling
+- Follow mobile-first responsive design approach
+- Use Tailwind's design tokens consistently
+- Avoid inline styles; prefer Tailwind classes
+
+### Performance & Optimization
+
+- Implement proper code splitting and lazy loading
+- Optimize bundle size
+- Use Next.js built-in optimization features
+- Consider Server Components for better performance
+
+### Code Quality
+
+- Write clean, readable, and maintainable code
+- Add comments only when necessary to explain complex logic
+- Follow consistent naming conventions (camelCase for variables/functions, PascalCase for components)
+- Use ESLint and Prettier configurations
+
+## Deployment (Vercel)
+
+- Follow Vercel best practices
+- Use environment variables for sensitive data
+- Optimize for serverless deployment
